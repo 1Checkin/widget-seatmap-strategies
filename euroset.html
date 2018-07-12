@@ -450,188 +450,19 @@
                                                 <div>Место в самолете</div>
                                             </div>
                                             <div id="och-widget"></div>
-<link href="https://evger.dev.1check.in/widget/widget.css" rel="stylesheet" />
-<script type="text/javascript" src="https://evger.dev.1check.in/widget/widget.js"></script>
-<script type="text/x-template" id="seatmap_preview" data-title="Карта мест ..."><div class="seatmap-component">
-        <div class="seats-not-found collapse"> Не найдено ни одного места </div>
-        <div class="legend collapse in">
-            <button type="button" class="close" data-toggle="collapse" data-target=".legend">
-                <i class="icon icon-cross"></i>
-            </button>
-            <table class="seatmap">
-            <tbody>
-            <tr>
-                <td class="isExists"></td>
-                <td class="space">Место занято</td>
-            </tr>
-            <tr>
-                <td class="isExists isEmpty"></td>
-                <td class="space">Свободное место</td>
-            </tr>
-            <tr>
-                <td class="isExists isCurrent"></td>
-                <td class="space">Выбранное место</td>
-                <%#data.has_paid_seats%>
-            </tr>
-            <tr>
-                <td class="isExists isPaid isEmpty"></td>
-                <td class="space">Платное место</td>
-            <%/data.has_paid_seats%>
-            </tr>
-            </tbody></table>
-        </div>
-        <div class="seatmap-container"></div>
-    </div></script>
-    <script type="text/x-template" id="seatmap_strategies"><div class="row strategies settings">
-        <div class="col-sm-6">
-            <div class="form-group">
-                <div class="space"></div>
-                <label> Стратегии&nbsp;<a href="#strategies-<%num%>" class="hint" data-toggle="collapse"></a>
-                </label>
-                <div class="collapse well" id="strategies-<%num%>"> Слева написаны приоритеты, по которым система выбирает вам место. Кликните по любому из них и здесь вы увидите какие места будут выбраны на схеме самолета. Тот приоритет, который стоит выше в списке система выполняет в первую очередь. Чтобы поменять приоритеты — перетащите их в нужном порядке с помощью знака "тянуть". </div>
-            </div>
-            <div class="drag-list counter-reset">
-            <%#strategiesList%>
-                <div class="form-group drag">
-                    <div class="row half-gap">
-                        <div class="col-sm-1 col-xs-2">
-                            <span class="badge counter"></span>
-                            <div class="drag-holder">
-                                <i class="icon icon-order"></i>
-                            </div>
-                        </div>
-                        <div class="col-xs-10 col-sm-7">
-                            <select class="form-control" data-inital_value="<%strategy%>" name="strategy">
-                            <%#strategies%>
-                            <%#env.mobileApp%>
-                            <optgroup label="">Стратегии</optgroup>
-                            <%/env.mobileApp%>
-                            <option value="<%id%>"><%name%></option>
-                            <%/strategies%>
-                            </select>
-                        </div>
-                        <div class="half-space visible-xs"></div>
-                        <div class="col-xs-2 visible-xs"></div>
-                        <div class="col-xs-7 col-sm-4 text-center">
-                            <div class="btn-group plane-selector<%^has_modifiers%> hidden<%/has_modifiers%>" data-toggle="buttons">
-                                <button class="btn btn-clear <%#modifiers.rear%> active<%/modifiers.rear%>" type="button">
-                                    <i class="icon icon-plane-rear"></i>
-                                    <input type="checkbox" name="rear" value="1" <%#modifiers.rear%> checked<%/modifiers.rear%>/>
-                                </button>
-                                <button class="btn btn-clear <%#modifiers.middle%> active<%/modifiers.middle%>" type="button">
-                                    <i class="icon icon-plane-mid"></i>
-                                    <input type="checkbox" name="middle" value="1" <%#modifiers.middle%> checked<%/modifiers.middle%>/>
-                                </button>
-                                <button class="btn btn-clear <%#modifiers.front%> active<%/modifiers.front%>" type="button">
-                                    <i class="icon icon-plane-front"></i>
-                                    <input type="checkbox" name="front" value="1" <%#modifiers.front%> checked<%/modifiers.front%>/>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="space hidden-xs"></div>
-                        <div class="col-sm-1 hidden-xs"></div>
-                        <div class="col-xs-3">
-                            <button class="btn-show btn-clear" type="button">
-                                <i class="icon icon-eye"></i> Показать </button>
-                        </div>
-                    </div>
-                </div>
-            <%/strategiesList%>
-            </div>
-            <div class="space"></div>
-            <a href="#" class="btn-add-strategy" data-psgs="<%index%>">
-                <i class="icon icon-plus"></i> Добавить стратегию </a>
-            <div class="space visible-xs"></div>
-            <button class="btn btn-default btn-block visible-xs btn-apply" type="button"> Проверить стратегии </button>
-        </div>
-        <div class="col-sm-6 collapse-xs seatmap-container">
-            <button class="btn btn-tooltip visible-xs btn-back" type="button">
-                &larr;&nbsp;Назад </button>
-            <div class="obj-seatmap_preview subcomponent" data-uri="<%uri%>seatmap_preview/<%index%>/" data-class="seatmap_preview">
-            </div>
-        </div>
-    </div></script><script type="text/json" id="seatmap_strategies_dict"> {"1": [{"has_modifiers": true, "id": "one_psg_beginning_window", "name": "\u0443 \u043e\u043a\u043d\u0430", "priority": 0, "psg_count": 1, "psg_max": 0, "psg_min": 0}, {"has_modifiers": true, "id": "one_psg_beginning_aisle", "name": "\u0443 \u043f\u0440\u043e\u0445\u043e\u0434\u0430", "priority": 1, "psg_count": 1, "psg_max": 0, "psg_min": 0}, {"has_modifiers": false, "id": "find_any_seat", "name": "\u043b\u044e\u0431\u043e\u0435 \u043c\u0435\u0441\u0442\u043e", "priority": 2, "psg_count": 0, "psg_max": 10, "psg_min": 1}], "10": [{"has_modifiers": false, "id": "split_on_groups", "name": "\u0440\u0430\u0437\u0434\u0435\u043b\u0438\u0442\u044c \u043d\u0430 \u0433\u0440\u0443\u043f\u043f\u044b 1-3 \u043f\u0430\u0441\u0441\u0430\u0436\u0438\u0440\u0430 \u0438 \u043f\u0440\u0438\u043c\u0435\u043d\u0438\u0442\u044c \u0441\u0442\u0440\u0430\u0442\u0435\u0433\u0438\u044e", "priority": 0, "psg_count": 0, "psg_max": 10, "psg_min": 4}, {"has_modifiers": false, "id": "find_any_seat", "name": "\u043b\u044e\u0431\u043e\u0435 \u043c\u0435\u0441\u0442\u043e", "priority": 1, "psg_count": 0, "psg_max": 10, "psg_min": 1}], "2": [{"has_modifiers": true, "id": "two_psg_two_together_window", "name": "\u0432\u043c\u0435\u0441\u0442\u0435 \u0443 \u043e\u043a\u043d\u0430", "priority": 0, "psg_count": 2, "psg_max": 0, "psg_min": 0}, {"has_modifiers": true, "id": "two_psg_two_together_aisle", "name": "\u0432\u043c\u0435\u0441\u0442\u0435 \u0443 \u043f\u0440\u043e\u0445\u043e\u0434\u0430", "priority": 1, "psg_count": 2, "psg_max": 0, "psg_min": 0}, {"has_modifiers": true, "id": "two_psg_three_seats_block", "name": "\u0443 \u043e\u043a\u043d\u0430 \u0438 \u043f\u0440\u043e\u0445\u043e\u0434\u0430 \u0441 \u043f\u0443\u0441\u0442\u044b\u043c \u043c\u0435\u0441\u0442\u043e\u043c \u0432 \u0441\u0435\u0440\u0435\u0434\u0438\u043d\u0435", "priority": 2, "psg_count": 2, "psg_max": 0, "psg_min": 0}, {"has_modifiers": true, "id": "two_psg_two_together", "name": "\u0432\u043c\u0435\u0441\u0442\u0435", "priority": 3, "psg_count": 2, "psg_max": 0, "psg_min": 0}, {"has_modifiers": true, "id": "two_middle_aisle", "name": "\u0440\u044f\u0434\u043e\u043c \u0432 \u0446\u0435\u043d\u0442\u0440\u0430\u043b\u044c\u043d\u043e\u043c \u0431\u043b\u043e\u043a\u0435 \u0443 \u043f\u0440\u043e\u0445\u043e\u0434\u0430", "priority": 4, "psg_count": 2, "psg_max": 0, "psg_min": 0}, {"has_modifiers": true, "id": "two_psg_aisle", "name": "\u0447\u0435\u0440\u0435\u0437 \u043f\u0440\u043e\u0445\u043e\u0434", "priority": 5, "psg_count": 2, "psg_max": 0, "psg_min": 0}, {"has_modifiers": false, "id": "find_any_seat", "name": "\u043b\u044e\u0431\u043e\u0435 \u043c\u0435\u0441\u0442\u043e", "priority": 6, "psg_count": 0, "psg_max": 10, "psg_min": 1}], "3": [{"has_modifiers": true, "id": "three_psg_three_psg_together_window", "name": "\u0432\u043c\u0435\u0441\u0442\u0435 \u0443 \u043e\u043a\u043d\u0430", "priority": 0, "psg_count": 3, "psg_max": 0, "psg_min": 0}, {"has_modifiers": true, "id": "three_psg_two_rows_window", "name": "\u0434\u0432\u043e\u0435 \u0443 \u043e\u043a\u043d\u0430 \u0442\u0440\u0435\u0442\u0438\u0439 \u043f\u043e\u0437\u0430\u0434\u0438 \u0443 \u043e\u043a\u043d\u0430", "priority": 1, "psg_count": 3, "psg_max": 0, "psg_min": 0}, {"has_modifiers": true, "id": "three_psg_three_together", "name": "\u0432\u043c\u0435\u0441\u0442\u0435", "priority": 2, "psg_count": 3, "psg_max": 0, "psg_min": 0}, {"has_modifiers": true, "id": "three_middle_block", "name": "\u0440\u044f\u0434\u043e\u043c \u0432 \u0446\u0435\u043d\u0442\u0440\u0430\u043b\u044c\u043d\u043e\u043c \u0431\u043b\u043e\u043a\u0435", "priority": 3, "psg_count": 3, "psg_max": 0, "psg_min": 0}, {"has_modifiers": true, "id": "three_middle_aisle", "name": "\u0440\u044f\u0434\u043e\u043c \u0432 \u0446\u0435\u043d\u0442\u0440\u0430\u043b\u044c\u043d\u043e\u043c \u0431\u043b\u043e\u043a\u0435 \u0443 \u043f\u0440\u043e\u0445\u043e\u0434\u0430", "priority": 4, "psg_count": 3, "psg_max": 0, "psg_min": 0}, {"has_modifiers": true, "id": "three_psg_two_rows_aisle", "name": "\u0434\u0432\u043e\u0435 \u0443 \u043f\u0440\u043e\u0445\u043e\u0434\u0430 \u0442\u0440\u0435\u0442\u0438\u0439 \u043f\u043e\u0437\u0430\u0434\u0438 \u0443 \u043f\u0440\u043e\u0445\u043e\u0434\u0430", "priority": 5, "psg_count": 3, "psg_max": 0, "psg_min": 0}, {"has_modifiers": false, "id": "find_any_seat", "name": "\u043b\u044e\u0431\u043e\u0435 \u043c\u0435\u0441\u0442\u043e", "priority": 6, "psg_count": 0, "psg_max": 10, "psg_min": 1}], "4": [{"has_modifiers": true, "id": "four_psg_together_window", "name": "\u0432\u043c\u0435\u0441\u0442\u0435 \u0432 \u043e\u0434\u043d\u043e\u043c \u0440\u044f\u0434\u0443 \u0440\u044f\u0434\u043e\u043c \u0441 \u043e\u043a\u043d\u043e\u043c", "priority": 0, "psg_count": 4, "psg_max": 0, "psg_min": 0}, {"has_modifiers": true, "id": "four_psg_three_block_one_behind", "name": "\u0442\u0440\u043e\u0435 \u0440\u044f\u0434\u043e\u043c \u0432 \u0431\u043b\u043e\u043a\u0435 \u0438\u0437 3 \u043c\u0435\u0441\u0442, \u043e\u0434\u0438\u043d \u043f\u043e\u0437\u0430\u0434\u0438 \u0443 \u043e\u043a\u043d\u0430", "priority": 1, "psg_count": 4, "psg_max": 0, "psg_min": 0}, {"has_modifiers": true, "id": "four_psg_middle_block", "name": "\u0432\u043c\u0435\u0441\u0442\u0435 \u0432 \u0446\u0435\u043d\u0442\u0440\u0430\u043b\u044c\u043d\u043e\u043c \u0431\u043b\u043e\u043a\u0435", "priority": 2, "psg_count": 4, "psg_max": 0, "psg_min": 0}, {"has_modifiers": true, "id": "four_psg_together", "name": "\u0432\u043c\u0435\u0441\u0442\u0435 \u0432 \u043e\u0434\u043d\u043e\u043c \u0440\u044f\u0434\u0443", "priority": 3, "psg_count": 4, "psg_max": 0, "psg_min": 0}, {"has_modifiers": true, "id": "four_psg_two_and_two", "name": "\u043f\u043e\u0441\u0430\u0434\u0438\u0442\u044c \u043f\u043e \u0434\u0432\u043e\u0435", "priority": 4, "psg_count": 4, "psg_max": 0, "psg_min": 0}, {"has_modifiers": false, "id": "split_on_groups", "name": "\u0440\u0430\u0437\u0434\u0435\u043b\u0438\u0442\u044c \u043d\u0430 \u0433\u0440\u0443\u043f\u043f\u044b 1-3 \u043f\u0430\u0441\u0441\u0430\u0436\u0438\u0440\u0430 \u0438 \u043f\u0440\u0438\u043c\u0435\u043d\u0438\u0442\u044c \u0441\u0442\u0440\u0430\u0442\u0435\u0433\u0438\u044e", "priority": 5, "psg_count": 0, "psg_max": 10, "psg_min": 4}, {"has_modifiers": false, "id": "find_any_seat", "name": "\u043b\u044e\u0431\u043e\u0435 \u043c\u0435\u0441\u0442\u043e", "priority": 6, "psg_count": 0, "psg_max": 10, "psg_min": 1}], "5": [{"has_modifiers": false, "id": "split_on_groups", "name": "\u0440\u0430\u0437\u0434\u0435\u043b\u0438\u0442\u044c \u043d\u0430 \u0433\u0440\u0443\u043f\u043f\u044b 1-3 \u043f\u0430\u0441\u0441\u0430\u0436\u0438\u0440\u0430 \u0438 \u043f\u0440\u0438\u043c\u0435\u043d\u0438\u0442\u044c \u0441\u0442\u0440\u0430\u0442\u0435\u0433\u0438\u044e", "priority": 0, "psg_count": 0, "psg_max": 10, "psg_min": 4}, {"has_modifiers": false, "id": "find_any_seat", "name": "\u043b\u044e\u0431\u043e\u0435 \u043c\u0435\u0441\u0442\u043e", "priority": 1, "psg_count": 0, "psg_max": 10, "psg_min": 1}], "6": [{"has_modifiers": false, "id": "split_on_groups", "name": "\u0440\u0430\u0437\u0434\u0435\u043b\u0438\u0442\u044c \u043d\u0430 \u0433\u0440\u0443\u043f\u043f\u044b 1-3 \u043f\u0430\u0441\u0441\u0430\u0436\u0438\u0440\u0430 \u0438 \u043f\u0440\u0438\u043c\u0435\u043d\u0438\u0442\u044c \u0441\u0442\u0440\u0430\u0442\u0435\u0433\u0438\u044e", "priority": 0, "psg_count": 0, "psg_max": 10, "psg_min": 4}, {"has_modifiers": false, "id": "find_any_seat", "name": "\u043b\u044e\u0431\u043e\u0435 \u043c\u0435\u0441\u0442\u043e", "priority": 1, "psg_count": 0, "psg_max": 10, "psg_min": 1}], "7": [{"has_modifiers": false, "id": "split_on_groups", "name": "\u0440\u0430\u0437\u0434\u0435\u043b\u0438\u0442\u044c \u043d\u0430 \u0433\u0440\u0443\u043f\u043f\u044b 1-3 \u043f\u0430\u0441\u0441\u0430\u0436\u0438\u0440\u0430 \u0438 \u043f\u0440\u0438\u043c\u0435\u043d\u0438\u0442\u044c \u0441\u0442\u0440\u0430\u0442\u0435\u0433\u0438\u044e", "priority": 0, "psg_count": 0, "psg_max": 10, "psg_min": 4}, {"has_modifiers": false, "id": "find_any_seat", "name": "\u043b\u044e\u0431\u043e\u0435 \u043c\u0435\u0441\u0442\u043e", "priority": 1, "psg_count": 0, "psg_max": 10, "psg_min": 1}], "8": [{"has_modifiers": false, "id": "split_on_groups", "name": "\u0440\u0430\u0437\u0434\u0435\u043b\u0438\u0442\u044c \u043d\u0430 \u0433\u0440\u0443\u043f\u043f\u044b 1-3 \u043f\u0430\u0441\u0441\u0430\u0436\u0438\u0440\u0430 \u0438 \u043f\u0440\u0438\u043c\u0435\u043d\u0438\u0442\u044c \u0441\u0442\u0440\u0430\u0442\u0435\u0433\u0438\u044e", "priority": 0, "psg_count": 0, "psg_max": 10, "psg_min": 4}, {"has_modifiers": false, "id": "find_any_seat", "name": "\u043b\u044e\u0431\u043e\u0435 \u043c\u0435\u0441\u0442\u043e", "priority": 1, "psg_count": 0, "psg_max": 10, "psg_min": 1}], "9": [{"has_modifiers": false, "id": "split_on_groups", "name": "\u0440\u0430\u0437\u0434\u0435\u043b\u0438\u0442\u044c \u043d\u0430 \u0433\u0440\u0443\u043f\u043f\u044b 1-3 \u043f\u0430\u0441\u0441\u0430\u0436\u0438\u0440\u0430 \u0438 \u043f\u0440\u0438\u043c\u0435\u043d\u0438\u0442\u044c \u0441\u0442\u0440\u0430\u0442\u0435\u0433\u0438\u044e", "priority": 0, "psg_count": 0, "psg_max": 10, "psg_min": 4}, {"has_modifiers": false, "id": "find_any_seat", "name": "\u043b\u044e\u0431\u043e\u0435 \u043c\u0435\u0441\u0442\u043e", "priority": 1, "psg_count": 0, "psg_max": 10, "psg_min": 1}]} </script><script type="text/json" id="seatmap_preview_presets">[
-        {
-            "aircraft":"Airbus A320 много свободных мест",
-            "seatmap": [
-                {"rows":[{"isEmpty":false}, {"isEmpty":false}, {"isEmpty":false}, {"isEmpty":false}, {"isEmpty":false}, {"isEmpty":false}, {"isEmpty":true}, {"isEmpty":true}, {"isEmpty":true} ], "seatsCount":9,"seatName":"A","startNum":6 },
-                {"seatName":"B", "startNum":6, "rows":[{"isEmpty":false}, {"isEmpty":false}, {"isEmpty":false}, {"isEmpty":true}, {"isEmpty":true}, {"isEmpty":false}, {"isEmpty":false}, {"isEmpty":false}, {"isEmpty":true}, {"isEmpty":true}, {"isEmpty":true}], "seatsCount":11 },
-                {"seatName":"C","startNum":6,"seatsCount":11, "rows":[{"isEmpty":true}, {"isEmpty":true}, {"isEmpty":true}, {"isEmpty":true}, {"isEmpty":false}, {"isEmpty":false}, {"isEmpty":false}, {"isEmpty":true}, {"isEmpty":true}, {"isEmpty":true}, {"isEmpty":true} ] },
-                {"seatName":"space"},
-                {"rows":[{"isEmpty":true}, {"isEmpty":true}, {"isEmpty":false}, {"isEmpty":false}, {"isEmpty":false}, {"isEmpty":true}, {"isEmpty":true}, {"isEmpty":true}, {"isEmpty":true}, {"isEmpty":true}, {"isEmpty":true}], "seatsCount":11,"seatName":"D","startNum":6 },
-                {"seatName":"E", "startNum":6, "rows":[{"isEmpty":true}, {"isEmpty":true}, {"isEmpty":false}, {"isEmpty":false}, {"isEmpty":true}, {"isEmpty":true}, {"isEmpty":true}, {"isEmpty":true}, {"isEmpty":true}, {"isEmpty":true}, {"isEmpty":true}], "seatsCount":11 },
-                {"seatName":"F","startNum":6,"seatsCount":9, "rows":[{"isEmpty":false}, {"isEmpty":false}, {"isEmpty":false}, {"isEmpty":false}, {"isEmpty":true}, {"isEmpty":true}, {"isEmpty":true}, {"isEmpty":true}, {"isEmpty":true}] }
-            ]
-        },
-        {
-            "aircraft":"Airbus A320 мало свободных мест", "seatmap": [{"rows":[{"isEmpty":false}, {"isEmpty":false}, {"isEmpty":false}, {"isEmpty":false}, {"isEmpty":false}, {"isEmpty":true}, {"isEmpty":false}, {"isEmpty":true}, {"isEmpty":true} ], "seatsCount":9,"seatName":"A","startNum":6 }, {"seatName":"B", "startNum":6, "rows":[{"isEmpty":false}, {"isEmpty":false}, {"isEmpty":false}, {"isEmpty":true}, {"isEmpty":true}, {"isEmpty":true}, {"isEmpty":true}, {"isEmpty":true}, {"isEmpty":true} ], "seatsCount":9 }, {"seatName":"C","startNum":6,"seatsCount":9, "rows":[{"isEmpty":true}, {"isEmpty":true}, {"isEmpty":false}, {"isEmpty":true}, {"isEmpty":false}, {"isEmpty":true}, {"isEmpty":true}, {"isEmpty":false}, {"isEmpty":true} ] }, {"seatName":"space"}, {"rows":[{"isEmpty":true}, {"isEmpty":true}, {"isEmpty":true}, {"isEmpty":false}, {"isEmpty":true}, {"isEmpty":true}, {"isEmpty":true}, {"isEmpty":true}, {"isEmpty":false} ], "seatsCount":9,"seatName":"D","startNum":6 }, {"seatName":"E", "startNum":6, "rows":[{"isEmpty":true}, {"isEmpty":false}, {"isEmpty":true}, {"isEmpty":true}, {"isEmpty":true}, {"isEmpty":true}, {"isEmpty":true}, {"isEmpty":true}, {"isEmpty":true} ], "seatsCount":9 }, {"seatName":"F","startNum":6,"seatsCount":9, "rows":[{"isEmpty":false}, {"isEmpty":false}, {"isEmpty":false}, {"isEmpty":false}, {"isEmpty":false}, {"isEmpty":true}, {"isEmpty":true}, {"isEmpty":true}, {"isEmpty":true}]}]
-        }
-    ]</script><script type="text/x-template" id="seatmap"><table class="seatmap<%#is_selectable%> selectable<%/is_selectable%><%#is_example%> example<%/is_example%>">
-        <thead><tr>
-            <%#columns%>
-                <%#name%><th class="text-center"><%name%></th><%/name%>
-                <%^name%><th class="space"></th><%/name%>
-            <%/columns%>
-        </tr></thead>
-        <tbody>
-            <%#rows%>
-            <tr data-index="<%i%>">
-                <%#cols%>
-                    <%^space%><td class="<%#classList%><%.%> <%/classList%>" data-index="<%index%>" <%#isPaid%>data-toggle="tooltip" title="<%cost%>"<%/isPaid%>></td><%/space%>
-                    <%#space%><td class="space"><%num%></td><%/space%>
-                <%/cols%>
-            <%/rows%>
-        </tbody>
-    </table>
-    <div class="popover top in controls hidden">
-        <div class="arrow"></div>
-        <div class="btn-group">
-            <button class="btn btn-rm btn-default" type="button">&minus;</button>
-            <button class="btn btn-add btn-default" type="button">&plus;</button>
-            <button class="btn btn-add-space btn-default" type="button">&blank;</button>
-        </div>
-    </div></script><script type="text/icon-svg" id="icon-plus"><svg viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <path d="M23.5,12 C23.5,18.352 18.352,23.5 12,23.5 C5.649,23.5 0.5,18.352 0.5,12 C0.5,5.649 5.649,0.5 12,0.5 C18.352,0.5 23.5,5.649 23.5,12 Z" class="Stroke-1"></path>
-        <path d="M12,7 L12,17"></path>
-        <path d="M17,12 L7,12"></path>
-    </svg></script><script type="text/icon-svg" id="icon-order"><svg viewBox="0 0 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg">
-        <polyline  stroke-linejoin="round" points="-8e-05 15.8552 3.34552 19.2 6.70552 15.8392"></polyline>
-        <path d="M3.34288,11.84504 L3.34288,19.19944"  stroke-linejoin="round"></path>
-        <polyline  stroke-linejoin="round" points="6.70536 3.35368 3.35976 0.00888 -0.00024 3.36968"></polyline>
-        <path d="M3.3628,7.36384 L3.3628,0.00944"  stroke-linejoin="round"></path>
-        <path d="M10.03896,-0.00024 L19.16296,-0.00024" ></path>
-        <path d="M10.03896,6.40288 L19.16296,6.40288" ></path>
-        <path d="M10.03896,12.806 L19.16296,12.806" ></path>
-        <path d="M10.03896,19.19976 L19.16296,19.19976" ></path>
-    </svg></script><script type="text/icon-svg" id="icon-eye"><svg viewBox="0 -5 31 30" version="1.1" xmlns="http://www.w3.org/2000/svg">
-        <path d="M29,10 C27.3582512,13.4 22.9633378,19.7983333 14.5,20 C6.03750802,19.7983333 1.64174882,13.4 0,10 C1.64174882,6.60083333 6.03750802,0.201666667 14.5,0 C22.9633378,0.201666667 27.3582512,6.60083333 29,10 Z"></path>
-        <path d="M18,9.99957578 C18,12.2089299 16.2089299,14 14.0004242,14 C11.7910701,14 10,12.2089299 10,9.99957578 C10,7.79022166 11.7910701,6 14.0004242,6 C16.2089299,6 18,7.79022166 18,9.99957578 Z"></path>
-    </svg></script><script type="text/icon-svg" id="icon-plane-front"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 29" >
-    <path d="M0.5,28.5h11.4c1.7,0,3.2,0,4.8,0c1.4,0,2.8,0,4,0c5.4,0,9.2-0.2,10.7-2c0.5-0.6-1.3-6.9-4.6-9.2
-        c-3.7-2.7-9.1-4.7-15-4.7H0.5L0.5,28.5z"/>
-    <path fill="#fff" d="M26.4,19.2H14.7c-0.3,0-0.7-0.4-0.7-1c0-0.5,0.3-1,0.7-1h11.7c0.3,0,0.7,0.4,0.7,1
-        C27,18.8,26.7,19.2,26.4,19.2z"/>
-</svg></script><script type="text/icon-svg" id="icon-plane-mid"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42 29">
-    <path d="M41.5,28.5h-41v-16h41V28.5z"/>
-    <path fill="#fff" d="M38.7,23.2c0.4,0,0.7-0.3,0.7-0.7c0-0.4-0.3-0.7-0.6-0.8l-25.6-3L8,15.2c-0.1-0.1-0.3-0.1-0.4-0.1H4.5
-        c-0.3,0-0.5,0.1-0.6,0.3s-0.1,0.5,0,0.7L7,22.7c0.1,0.3,0.4,0.4,0.7,0.4h16.1L38.7,23.2z"/>
-</svg></script><script type="text/icon-svg" id="icon-plane-rear"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 29">
-    <path d="M37.4,12.5H22.6L10.2,1.3c-0.3-0.2-0.7-0.5-1-0.5l-7-0.3c-0.6,0-1.1,0.2-1.4,0.8C0.4,1.8,0.4,2.5,0.7,3.1
-        l6.4,13.7l1.3,2.8c2.1,4.4,15,9,29.1,9C37.5,28.5,37.4,15.7,37.4,12.5z"/>
-    <path fill="#fff" d="M10.8,16.4l-9.6-1.1c-0.3-0.1-0.6-0.4-0.6-0.8s0.3-0.7,0.7-0.7l8.2-0.1h9.8c0.3,0,0.6,0.2,0.7,0.5l0.9,2.4
-        c0.1,0.2,0.1,0.5-0.1,0.7s-0.4,0.3-0.6,0.3h-0.1L10.8,16.4z"/>
-</svg></script><script type="text/icon-svg" id="icon-cross"><svg viewBox="-5 -5 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg">
-        <path d="M8,-2e-05 L0,7.99998"></path>
-        <path d="M8,7.99998 L0,-2e-05"></path>
-    </svg></script><script type="text/icon-svg" id="text-example"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-<text x="25" y="100" style="font-family: Open Sans, sans-serif; font-size: 14px; fill: #ddd" transform="rotate(-25,0,100)"> пример </text>
-</svg></script>
+<link href="./widget.css" rel="stylesheet" />
+<script type="text/javascript" src="./widget.js"></script>
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
             window.widget = new onecheckin_widget_seatmap_strategies(
-                document.getElementById('och-widget'), 3,
-                strategies => console.log(strategies)
+                document.getElementById('och-widget'), {
+                    "psg_copunt": 3,
+                    "onchange": function(strategies) {
+                        console.log(strategies)
+                    },
+                    "template_url": "widget.html",
+                }
             );
     }, false);
 </script>
