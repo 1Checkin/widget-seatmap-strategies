@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><title>widget</title><meta name="apple-mobile-web-app-capable" content="yes"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><meta charset="utf-8"><link href="widget.css" rel="stylesheet"></head><body><div class="och-container och-och-container"><div id="container"></div></div><script type="text/x-template" id="seatmap_preview" data-title="Seatmap ..."><div class="och-seatmap-component">
+<script type="text/x-template" id="seatmap_preview" data-title="Seatmap ..."><div class="och-seatmap-component">
         <div class="och-seats-not-found collapse" data-bind="seats-not-found"> No seats found </div>
         <div class="och-legend collapse in">
             <button type="button" class="och-close" data-toggle="collapse" data-target=".collapse">
@@ -159,13 +159,4 @@
         <path d="M8,7.99998 L0,-2e-05"></path>
     </svg></script><script type="text/icon-svg" id="text-example"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
 <text x="25" y="100" style="font-family: Open Sans, sans-serif; font-size: 14px; fill: #ddd" transform="rotate(-25,0,100)"> example </text>
-</svg></script><script>document.addEventListener('DOMContentLoaded', () => {
-            window.widget = new onecheckin_widget_seatmap_strategies(
-                document.getElementById('container'),
-                {
-                    psg_count: 3,
-                    template_url: 'https://s3.eu-central-1.amazonaws.com/static.1check.in/seatmap-widget-template.html',
-                    onchange: strategies => console.log(strategies)
-                }
-            );
-        }, false);</script><script type="text/javascript" src="widget.js"></script></body></html>
+</svg></script>
